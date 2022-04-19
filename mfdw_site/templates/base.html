@@ -14,7 +14,12 @@
   </header>
   <aside id="leftsidebar">
     <nav id="nav">
-    <ul><li>Menu 1</li><li>Menu 2</li><li>Menu 3</li></ul>
+    <ul>
+      {% block sidenav %}
+      <li>Menu 1</li><li>Menu 2</li><li>Menu 3</li>
+      {% endblock sidenav %}
+      <li><a href="/contact">Contact Us</a></li>
+    </ul>
     </nav>
   </aside>
   <section id="main">
@@ -23,7 +28,7 @@
       <p>This is the site template</p>
     {% endblock content %}
   </section>
-  <footer id="footer">Copyright &copy; 2019 Meandco Web Design</footer>
+  <footer id="footer">Copyright &copy; 2022 Maxwell Web Design</footer>
 </div>
 </body>
 </html>

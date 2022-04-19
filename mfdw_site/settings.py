@@ -122,3 +122,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
 os.path.join(BASE_DIR, 'mfdw_site/static'),
 ]
+
+DEBUG = True
+ALLOWED_HOSTS = ['127.0.0.1']
