@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 # Create your views here.
 from .models import Page
+from django.core.mail import send_mail, get_connection
 from django.http import HttpResponseRedirect
 from .forms import ContactForm
 # We are using functional based views 
@@ -28,6 +29,13 @@ def contact(request):
         if form.is_valid():
             cd = form.cleaned_data
             # assert False
+            con = get_connection('django.core.mail.backends.console.EmailBackend')
+            send_mail(cd['subject'],
+                      cd['message'],
+                      cd.get('email', 'noreply@example.com'),
+                      ['siteowner@example.com'],
+                      connection=con
+            )
             return HttpResponseRedirect('/contact?submitted=True')
     else:
         form = ContactForm()
